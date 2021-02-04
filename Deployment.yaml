@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: reactcalc
-          image: sujithkumar597/calc:8
+          image: sujithkumar597/calc:13
           imagePullPolicy: Always
           ports:
             - containerPort: 80
