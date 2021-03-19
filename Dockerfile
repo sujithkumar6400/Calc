@@ -3,7 +3,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY package.json /app
 RUN npm cache clean --force
-RUN npm clean-install
 RUN npm config set registry http://registry.npmjs.org/
 RUN npm install
 COPY . /app
