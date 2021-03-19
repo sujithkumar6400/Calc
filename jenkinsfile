@@ -4,8 +4,8 @@ node {
     stage('Environment verification'){
         sh 'docker --version'
         sh 'npm --version'
-        sh 'npm cache clean -f'
         sh 'echo ${BUILD_NUMBER}'
+        sh 'npm config set registry http://registry.npmjs.org/'
     }
 
     stage('Clone repository') { 
