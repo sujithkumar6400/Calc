@@ -25,7 +25,6 @@ node {
 
     stage('Build image') {
         echo "Starting Publish To Docker"
-        sh 'docker login -u sujithkumar597'
         sh 'docker build -f Dockerfile -t sujithkumar597/calc:${BUILD_NUMBER} .' 
         sh 'docker image push sujithkumar597/calc:${BUILD_NUMBER}'
     }
