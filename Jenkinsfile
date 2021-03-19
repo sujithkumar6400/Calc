@@ -26,14 +26,11 @@ node {
     stage('Build image') {
         echo "Starting Publish To Docker"
         sh 'docker build -f Dockerfile -t sujithkumar597/calc:${BUILD_NUMBER} .' 
-        withCredentials([usernamePassword( credentialsId: 'dockerhub_id', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-            def registry_url = "registry.hub.docker.com/"
-            sh "docker login -u $USER -p $PASSWORD ${registry_url}"
-            docker.withRegistry("http://${registry_url}", "dockerhub_id") {
+            docker.withRegistry("http://registry.hub.docker.com/", "dockerhub_id") {
                 // Push your image now
                 sh 'docker image push sujithkumar597/calc:${BUILD_NUMBER}'
             }
-        }
+        
     }
 
     post { 
