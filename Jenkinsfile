@@ -5,6 +5,8 @@ node {
         sh 'docker --version'
         sh 'npm --version'
         sh 'echo ${BUILD_NUMBER}'
+        sh 'npm cache clean --force'
+        sh 'npm clean-install'
         sh 'npm config set registry http://registry.npmjs.org/'
     }
 
