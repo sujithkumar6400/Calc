@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   name: reactcalc
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: reactcalc
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: reactcalc
-          image: sujithkumar597/calc:13
+          image: sujithkumar597/calc:16
           imagePullPolicy: Always
           ports:
             - containerPort: 80
