@@ -28,7 +28,7 @@ node {
         sh 'docker build -f Dockerfile -t sujithkumar597/calc:${BUILD_NUMBER} .' 
         withCredentials([usernamePassword( credentialsId: 'dockerhub_id', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
             def registry_url = "registry.hub.docker.com/"
-            bat "docker login -u $USER -p $PASSWORD ${registry_url}"
+            sh "docker login -u $USER -p $PASSWORD ${registry_url}"
             docker.withRegistry("http://${registry_url}", "dockerhub_id") {
                 // Push your image now
                 sh 'docker image push sujithkumar597/calc:${BUILD_NUMBER}'
